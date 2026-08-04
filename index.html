@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Havre Custom Polygon Tool</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <h2>Havre Custom Polygon Tool</h2>
+
+  <!-- ⭐ Layout container -->
+  <div id="appLayout">
+
+    <!-- ⭐ LEFT SIDE: canvas + zoom + mode -->
+    <div id="leftPanel">
+
+      <div id="render-area">
+        <h3>Preview:</h3>
+        <canvas id="preview" width="300" height="300"></canvas>
+      </div>
+
+      <div style="margin-top: 10px;">
+        <label for="zoomSlider">Zoom:</label>
+        <input type="range" id="zoomSlider" min="0.05" max="3" step="0.05" value="1">
+      </div>
+
+      <div id="modeContainer" style="margin-top: 12px;">
+        <label class="modeSwitch">
+          <input type="checkbox" id="modeToggle">
+          <span class="slider"></span>
+        </label>
+        <span id="modeLabel">Polygon</span>
+      </div>
+
+    </div>
+
+    <!-- ⭐ RIGHT SIDE: input/output + buttons -->
+    <div id="rightPanel">
+
+      <div class="box">
+        <label>Input coordinate set (like (1,2),(3,4),(5,6)):</label>
+        <textarea id="in" placeholder="(1,2),(3,4),(5,6)"></textarea>
+      </div>
+
+      <button onclick="restoreLast()">Restore Last Valid Input</button>
+      <button onclick="convert()">Convert to Havre format</button>
+
+      <div class="box" style="margin-top: 16px;">
+        <label>Output (Y,X;Y,X;...):</label>
+        <textarea id="out" readonly></textarea>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
